@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get "sign_in", to: "sessions#new", as: "sign_in"
   get "sign_up", to: "users#new", as: "sign_up"
-  get "sign_out", to: "sessions#destroy", as: "sign_out"
+  delete "sign_out", to: "sessions#destroy", as: "sign_out"
 
   namespace :admin do
     resources :products

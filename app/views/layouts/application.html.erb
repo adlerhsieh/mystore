@@ -14,15 +14,15 @@
 	</div>
 	<div class="navbar-form navbar-right">
 <% if !current_user %>
-	<%= render_cart_url %>&nbsp;<%= link_to "登入", sign_in_path, :class => "btn btn-default" %>&nbsp;<%= link_to "註冊", sign_up_path, :class => "btn btn-default", :style => "margin-right: 10px;" %>
+	<%= link_to "登入", sign_in_path, :class => "btn btn-default" %>&nbsp;<%= link_to "註冊", sign_up_path, :class => "btn btn-default", :style => "margin-right: 10px;" %>
 <% else %>
 	<%= current_user.email %>&nbsp;<%= link_to "登出", sign_out_path, :method => :delete, :class => "btn btn-default", :style => "margin-right: 10px;" %></p>
 <% end %>
 		
 	</div>
 </div>
-
-<%= yield %>
-
+<div class="container">
+	<%= yield %>
+</div>
 </body>
 </html>
