@@ -1,18 +1,8 @@
 class UsersController < ApplicationController
-require 'digest'
+  require 'digest'
 
   def index
-  	@users = User.all
-  	render json: @users, :except => [:password]
-  end
 
-  def list
-    @users = User.all
-  end
-
-  def sales
-  	@sales = User.where(:role => "sales")
-  	render json: @sales, :except => [:password]
   end
 
   def new
