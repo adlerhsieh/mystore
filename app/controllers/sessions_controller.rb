@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   	if @user
   		session[:user_id] = @user.id
       	flash[:notice] = nil
-  		redirect_to root_url
+  		redirect_to admin_products_path
   	else
   		flash[:notice] = "登入資訊錯誤"
   		render "new"

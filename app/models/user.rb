@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 	end
 
 	def self.authenticate(name, password)
-		user = User.find_by_username(name)
+		user = User.find_by_name(name)
 		@authentication = Digest::SHA256.new.hexdigest(password)
 		if user && @authentication == user.password
 			user

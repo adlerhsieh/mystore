@@ -22,7 +22,7 @@ require 'digest'
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_url
+      redirect_to admin_products_path
       session[:user_id] = @user.id
     else
       render "new"
