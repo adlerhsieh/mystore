@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
-  get 'users/new'
 
-  get 'products/edit'
+  get 'sessions/new'
 
-  namespace :admin do
-  get 'products/index'
-  end
+  get "sign_in", to: "sessions#new",as: "sign_in"
 
   namespace :admin do
-  get 'products/new'
+    resources :products
   end
 
+  resources :users
+  resources :products
+
+  root to: "products#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
