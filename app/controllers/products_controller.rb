@@ -11,6 +11,8 @@ class ProductsController < ApplicationController
   end
 
   def show
+  	@product = Product.find(params[:id])
   	gon.specific_product = Product.find(params[:id])
+  	@order = Order.new
   end
 end
