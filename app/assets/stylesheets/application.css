@@ -16,4 +16,19 @@
 
 .container {
 	margin-top: 50px;
-};
+}
+
+.thumb {
+	max-width: 150px;
+	max-height: 150px;
+}
+
+.product-col {
+	border: 1px solid black;
+	height: 250px;
+	text-align: center;
+}
+
+.product-title {
+	padding-top: 20px;
+}

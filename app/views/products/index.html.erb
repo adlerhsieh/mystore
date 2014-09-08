@@ -1,6 +1,9 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h1>所有項目</h1>
 
-<div ng-controller="listController as test">
-	<p>{{list}}</p>
+<div ng-controller="listController as productList" >
+	<div class="col-md-3 product-col" ng-repeat="product in productList.list">
+		<a href="{{product.link}}" target="_blank"><img class="thumb" src="{{product.default_image}}" /></a>
+		<p class="product-title"><a href="{{product.link}}" target="_blank">{{product.title}}</a></p>
+		<p>{{product.tag}}</p>
+	</div>
 </div>
