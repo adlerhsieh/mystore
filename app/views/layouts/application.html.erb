@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body ng-app="myStore">
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="navbar-header">
@@ -24,4 +24,6 @@
 	<%= yield %>
 </div>
 </body>
+
+<%= include_gon %>
 </html>
