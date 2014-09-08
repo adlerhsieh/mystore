@@ -2,8 +2,8 @@
 
 <div ng-controller="listController as productList" >
 	<div class="col-md-3 product-col" ng-repeat="product in productList.list">
-		<a href="{{product.link}}" target="_blank"><img class="thumb" src="{{product.default_image}}" /></a>
-		<p class="product-title"><a href="{{product.link}}" target="_blank">{{product.title}}</a></p>
+		<a href="/products/{{product.id}}"><img class="thumb" src="{{product.default_image}}" /></a>
+		<p class="product-title"><a href="/products/{{product.id}}">{{product.title}}</a></p>
 		<p>{{product.tag}}</p>
 	</div>
 </div>

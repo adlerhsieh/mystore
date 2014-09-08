@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :products
 	has_many :images
+	has_many :orders
 	before_save :password_digest
 	validates :name, :password_input, :password_input_confirmation, presence: true
 	validates :name, :email, uniqueness: true 

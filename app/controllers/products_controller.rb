@@ -7,5 +7,10 @@ class ProductsController < ApplicationController
   end
 
   def edit
+  	gon.specific_product = Product.find(params[:id])
+  end
+
+  def show
+  	gon.specific_product = Product.find(params[:id])
   end
 end

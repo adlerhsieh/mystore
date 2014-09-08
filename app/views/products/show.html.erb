@@ -1,0 +1,9 @@
+<div ng-controller="listController as p" >
+	<h1>{{p.specific_product.title}}</h1>
+	<div class="col-md-3 margin-top-30">
+		<a href="{{p.specific_product.link}}" target="_blank"><img class="show-thumb" src="{{p.specific_product.default_image}}" /></a>
+	</div>
+	<div class="col-md-9 margin-top-30">
+		<p>分類：{{p.specific_product.tag}}</p>
+	</div>
+</div>
