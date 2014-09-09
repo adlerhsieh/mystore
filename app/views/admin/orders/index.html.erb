@@ -1,4 +1,4 @@
-<div ng-controller="ordersController as ordersCtrl">
+<div  ng-controller="ordersController" >
 	<h1>所有訂單</h1>
 
 	<table class="order-table">
@@ -14,8 +14,15 @@
 			</tr>
 		</thead>
 		<tbody>
-
+			<tr ng-repeat="each_order in orders_list">
+				<td>{{each_order.id}}</td>
+				<td>{{each_order.customer}}</td>
+				<td><a href="/products/{{each_order.product_id}}">{{search_product(each_order.product_id)}}</a></td>
+				<td><p>{{each_order.created_at.substring(0,10)}}</p><p style="line-height: 5px">{{each_order.created_at.substring(11,19)}}</p></td>
+				<td>{{each_order.description}}</td>
+				<td>{{each_order.status}}</td>
+				<td><p>修改</p><p style="line-height: 5px">取消 | 已處理</p></td>
+			</tr>
 		</tbody>
 	</table>
-	{{ordersCtrl.orders}}
 </div>
