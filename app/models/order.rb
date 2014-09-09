@@ -1,4 +1,4 @@
 class Order < ActiveRecord::Base
 	belongs_to :user
-	validates :customer, presence: true
+	validates :customer, :product_id, presence: true
 end
