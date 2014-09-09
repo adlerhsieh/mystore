@@ -1,26 +1,21 @@
-<h1>所有訂單</h1>
+<div ng-controller="ordersController as ordersCtrl">
+	<h1>所有訂單</h1>
 
-<table class="order-table">
-	<thead>
-		<tr>
-			<th class="center" style="width:5%">編號</th>
-			<th class="center" style="width:12%">訂購人</th>
-			<th class="center" style="width:26%">品項</th>
-			<th class="center" style="width:12%">時間</th>
-			<th class="center" style="width:30%">說明</th>
-			<th class="center" style="width:15%">狀態</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @orders.each do |o| %>
+	<table class="order-table">
+		<thead>
 			<tr>
-				<td><%= o.id %></td>
-				<td><%= o.customer %></td>
-				<td><%= link_to @products.find(o.product_id).title, product_path(o.product_id) %></td>
-				<td><p><%= o.created_at.strftime("%Y/%m/%d") %></p><p style="line-height: 5px"><%= o.created_at.strftime("%H:%M:%S") %></p></td>
-				<td><%= o.description %></td>
-				<td><%= o.status %></td>
+				<th class="center" style="width:5%">編號</th>
+				<th class="center" style="width:12%">訂購人</th>
+				<th class="center" style="width:26%">品項</th>
+				<th class="center" style="width:12%">下訂時間</th>
+				<th class="center" style="width:25%">說明</th>
+				<th class="center" style="width:10%">狀態</th>
+				<th class="center" style="width:10%">修改</th>
 			</tr>
-		<% end %>
-	</tbody>
-</table>
+		</thead>
+		<tbody>
+
+		</tbody>
+	</table>
+	{{ordersCtrl.orders}}
+</div>

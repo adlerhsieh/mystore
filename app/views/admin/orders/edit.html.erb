@@ -1,0 +1,15 @@
+<h1>修改訂單</h1>
+
+<%= form_for @order do |f| %>
+	<table>
+		<tr>
+			<td>訂購人：</td>
+			<td><%= f.text_field :customer %></td>
+		</tr>
+		<tr>
+			<td>說明：</td>
+			<td><%= f.text_area :description, placeholder: "test" %></td>
+		</tr>
+	</table>
+	<%= f.submit "修改" %>
+<% end %>
