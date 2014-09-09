@@ -1,22 +1,24 @@
 <h1>所有訂單</h1>
 
-<table>
+<table class="order-table">
 	<thead>
 		<tr>
-			<th>訂單編號</th>
-			<th>訂購人</th>
-			<th>品項</th>
-			<th>時間</th>
-			<th>狀態</th>
+			<th class="center" style="width:5%">編號</th>
+			<th class="center" style="width:12%">訂購人</th>
+			<th class="center" style="width:26%">品項</th>
+			<th class="center" style="width:12%">時間</th>
+			<th class="center" style="width:30%">說明</th>
+			<th class="center" style="width:15%">狀態</th>
 		</tr>
 	</thead>
 	<tbody>
-		<%= @orders.each do |o| %>
+		<% @orders.each do |o| %>
 			<tr>
 				<td><%= o.id %></td>
 				<td><%= o.customer %></td>
-				<td><%= @products.find_by_id(o.product_id).title %></td>
-				<td><%= o.created_at %></td>
+				<td><%= link_to @products.find(o.product_id).title, product_path(o.product_id) %></td>
+				<td><p><%= o.created_at.strftime("%Y/%m/%d") %></p><p style="line-height: 5px"><%= o.created_at.strftime("%H:%M:%S") %></p></td>
+				<td><%= o.description %></td>
 				<td><%= o.status %></td>
 			</tr>
 		<% end %>
