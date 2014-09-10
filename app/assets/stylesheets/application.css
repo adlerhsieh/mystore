@@ -33,11 +33,20 @@
 }
 
 .product-col {
-	border: 1px solid black;
+
 	height: 250px;
 	text-align: center;
 }
 
 .product-title {
 	padding-top: 20px;
+	font-size: 18px;
+}
+
+.divider-30 {
+	height: 30px;
+}
+
+.divider-20 {
+	height: 20px;	
 }

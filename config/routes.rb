@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :products
-    resources :orders
+    resources :orders do
+      collection do
+        post :change_order_status
+      end
+    end
   end
 
   resources :users

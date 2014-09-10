@@ -1,9 +1,9 @@
 <h1>所有項目</h1>
-
+<p class="divider-30"></p>
 <div ng-controller="listController as productList" >
-	<div class="col-md-3 product-col" ng-repeat="product in productList.list">
+	<div class="col-md-2 product-col" ng-repeat="product in productList.list">
 		<a href="/products/{{product.id}}"><img class="thumb" src="{{product.default_image}}" /></a>
 		<p class="product-title"><a href="/products/{{product.id}}">{{product.title}}</a></p>
-		<p>{{product.tag}}</p>
+		
 	</div>
 </div>

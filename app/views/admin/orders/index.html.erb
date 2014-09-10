@@ -1,6 +1,8 @@
-<div  ng-controller="ordersController" >
+<div  ng-controller="ordersController" ng-init="tab = 1">
 	<h1>所有訂單</h1>
-
+<p class="divider-20"></p>
+<div class="btn btn-default" ng-click="this.tab = 1" ng-class="{active: this.tab === 1}">訂購中訂單</div>&nbsp;<div class="btn btn-default" ng-click="this.tab = 2" ng-class="{active: this.tab === 2}">取消的訂單</div>&nbsp;<div class="btn btn-default" ng-click="this.tab = 3" ng-class="{active: this.tab === 3}">完成的訂單</div>
+<p class="divider-20"></p>
 	<table class="order-table">
 		<thead>
 			<tr>
@@ -14,14 +16,32 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="each_order in orders_list">
+			<tr ng-repeat="each_order in current_orders" ng-show="this.tab == 1">
 				<td>{{each_order.id}}</td>
 				<td>{{each_order.customer}}</td>
 				<td><a href="/products/{{each_order.product_id}}">{{search_product(each_order.product_id)}}</a></td>
 				<td><p>{{each_order.created_at.substring(0,10)}}</p><p style="line-height: 5px">{{each_order.created_at.substring(11,19)}}</p></td>
 				<td>{{each_order.description}}</td>
 				<td>{{each_order.status}}</td>
-				<td><p>修改</p><p style="line-height: 5px">取消 | 已處理</p></td>
+				<td><a href="orders/{{each_order.id}}/edit">修改</a><p style="line-height: 15px"><button ng-click="cancel_order(current_orders.indexOf(each_order))">取消</button>&nbsp;<button ng-click="done_order(current_orders.indexOf(each_order))">已處理</button></p></td>
+			</tr>
+			<tr ng-repeat="each_order in cancelled_orders" ng-show="this.tab == 2">
+				<td>{{each_order.id}}</td>
+				<td>{{each_order.customer}}</td>
+				<td><a href="/products/{{each_order.product_id}}">{{search_product(each_order.product_id)}}</a></td>
+				<td><p>{{each_order.created_at.substring(0,10)}}</p><p style="line-height: 5px">{{each_order.created_at.substring(11,19)}}</p></td>
+				<td>{{each_order.description}}</td>
+				<td>{{each_order.status}}</td>
+				<td><a href="orders/{{each_order.id}}/edit">修改</a><p style="line-height: 15px"><button ng-click="recover_order(cancelled_orders.indexOf(each_order))">恢復</button></p></td>
+			</tr>
+			<tr ng-repeat="each_order in completed_orders" ng-show="this.tab == 3">
+				<td>{{each_order.id}}</td>
+				<td>{{each_order.customer}}</td>
+				<td><a href="/products/{{each_order.product_id}}">{{search_product(each_order.product_id)}}</a></td>
+				<td><p>{{each_order.created_at.substring(0,10)}}</p><p style="line-height: 5px">{{each_order.created_at.substring(11,19)}}</p></td>
+				<td>{{each_order.description}}</td>
+				<td>{{each_order.status}}</td>
+				<td><a href="orders/{{each_order.id}}/edit">修改</a><p style="line-height: 15px"><button ng-click="undone_order(completed_orders.indexOf(each_order))">轉為未處理</button></p></td>
 			</tr>
 		</tbody>
 	</table>
