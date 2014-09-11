@@ -35,4 +35,5 @@
 	<p class="divider-20"></p>
 	<h4><a href="{{p.specific_product.link}}" target="_blank">查看介紹</a></h4>
 	<p>分類：<%= Category.find(@product.category_id).title %></p>
+	<p>個人感想：{{p.specific_product.comments}}</p>
 </div>

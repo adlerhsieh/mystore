@@ -20,7 +20,8 @@ Product.create(:title => "TOFEL托福分類字彙",
 				   	  :link => "http://www.books.com.tw/products/0010593790",
 				      :default_image => "http://im1.book.com.tw/image/getImage?i=http://www.books.com.tw/img/001/059/37/0010593790.jpg&w=348&h=348",	
 				      :category_id => Category.find_by_title("英語學習").id,
-				      :user_id => @user.id
+				      :user_id => @user.id,
+				      :comments => "堪用，字有點多，個人經驗是讀幾頁就放棄了"
 				      )
 
 Product.create(:title => "圍城", 
@@ -29,7 +30,8 @@ Product.create(:title => "圍城",
 				   	  :link => "http://www.books.com.tw/products/0010355108",
 				      :default_image => "http://im1.book.com.tw/image/getImage?i=http://www.books.com.tw/img/001/035/51/0010355108.jpg&w=348&h=348",	
 				      :category_id => Category.find_by_title("文學小說").id,
-				      :user_id => @user.id
+				      :user_id => @user.id,
+				      :comments => "好看，中文經典小說，沒話說"
 				      )
 
 Product.create(:title => "3ds Max 2011 即效見本", 
@@ -38,7 +40,8 @@ Product.create(:title => "3ds Max 2011 即效見本",
 				   	  :link => "http://www.books.com.tw/products/0010474272",
 				      :default_image => "http://im1.book.com.tw/image/getImage?i=http://www.books.com.tw/img/001/047/42/0010474272.jpg&w=348&h=348",	
 				      :category_id => Category.find_by_title("電腦").id,
-				      :user_id => @user.id
+				      :user_id => @user.id,
+				      :comments => "一個有點過時的3D軟體書籍，我是說書過時，軟體基本上還是市面主流"
 				      )
 
 Product.create(:title => "富爸爸，窮爸爸", 
@@ -47,7 +50,8 @@ Product.create(:title => "富爸爸，窮爸爸",
 				   	  :link => "http://www.books.com.tw/products/0010139294",
 				      :default_image => "http://im1.book.com.tw/image/getImage?i=http://www.books.com.tw/img/001/013/92/0010139294.jpg&w=348&h=348",	
 				      :category_id => Category.find_by_title("理財").id,
-				      :user_id => @user.id
+				      :user_id => @user.id,
+				      :comments => "雖然富爸爸已經破產了，但書中有些觀念還是非常實用"
 				      )
 
 Product.create(:title => "Mr.Jamie 網路創業七堂課", 
@@ -56,5 +60,6 @@ Product.create(:title => "Mr.Jamie 網路創業七堂課",
 				   	  :link => "http://mrjamie.cc/2011/10/07/7-startup-lessons/",
 				      :default_image => "http://mrjamie.cc/wp-content/uploads/2011/10/2AB521-1-386x550.jpg",	
 				      :category_id => Category.find_by_title("創業").id,
-				      :user_id => @user.id
+				      :user_id => @user.id,
+				      :comments => "就平常會看得到的創業書，講些屁話，但看前幾章的時候會覺得自己好像要開始創業了"
 				      )

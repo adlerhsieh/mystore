@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911160148) do
+ActiveRecord::Schema.define(version: 20140911164808) do
 
   create_table "categories", force: true do |t|
     t.datetime "created_at"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140911160148) do
     t.string   "link"
     t.string   "tag"
     t.integer  "category_id"
+    t.text     "comments"
   end
 
   create_table "users", force: true do |t|
