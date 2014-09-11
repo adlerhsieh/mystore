@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-  	gon.products = Product.all
+  	gon.products = Product.where('quantity > ?', 0)
   end
 
   def new

@@ -18,6 +18,7 @@ class Admin::OrdersController < ApplicationController
 
   def change_order_status
     Order.find(params[:id]).update_attributes(:status => params[:statusCode])
+    Product.find(Order.find(params[:id]).product_id).update_attributes(:quantity => 1) if params[:statusCode] == "取消"
     @respond = {:result => 'success'}
     render :json => @respond
   end

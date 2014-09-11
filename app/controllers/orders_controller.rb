@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
 			@order.update_attributes(:quantity => 1,
 									 :status => "下訂"
 									)
+			Product.find(@order[:product_id]).update_attributes(:quantity => 0)
 			redirect_to root_url
 			flash[:notice] = "已送出訂單，請靜候佳音"
 		else
