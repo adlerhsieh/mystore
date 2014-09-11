@@ -1,7 +1,9 @@
-<h1>所有項目</h1>
+<h1 ng-hide="search.length > 0">全部</h1><h1 ng-show="search.length > 0">搜尋：{{search}}</h1>
+<p style="text-align:right;margin-top:-40px"><input class="" style="width:25%; height: 35px;" ng-model="search" placeholder="快速搜尋"></p>
+<hr/>
 <p class="divider-30"></p>
 <div ng-controller="listController as productList" >
-	<div class="col-md-2 product-col" ng-repeat="product in productList.list">
+	<div class="col-md-2 product-col" ng-repeat="product in productList.list | filter:search">
 		<a href="/products/{{product.id}}"><img class="thumb" src="{{product.default_image}}" /></a>
 		<p class="product-title"><a href="/products/{{product.id}}">{{product.title}}</a></p>
 		

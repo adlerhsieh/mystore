@@ -1,26 +1,38 @@
-<div ng-controller="listController as p" >
+<div ng-controller="listController as p" ng-init="tab = 1">
 	<h1>{{p.specific_product.title}}</h1>
 	<div class="col-md-3 margin-top-30">
 		<a href="{{p.specific_product.link}}" target="_blank"><img class="show-thumb" src="{{p.specific_product.default_image}}" /></a>
 	</div>
 	<div class="col-md-9 margin-top-30">
-		<p>分類：{{p.specific_product.tag}}</p>
-		<%= form_for @order do |f| %>
-			<table>
-				<tr>
-					<td colspan="2" >預訂此項物品</td>
-				</tr>
-				<tr>
-					<td>訂購人：</td>
-					<td><%= f.text_field :customer %></td>
-				</tr>
-				<tr>
-					<td>說明：</td>
-					<td><%= f.text_area :description, placeholder: "test" %></td>
-				</tr>
-			</table>
-			<%= f.text_field :product_id, value: @product.id, readonly: true, :style => "display: none" %>
-			<%= f.submit "送出" %>
-		<% end %>
-	</div>
+		<div ng-show="tab === 1">
+			<p class="btn btn-primary font-16" ng-click="tab = 2" style="width: 150px;">我要預訂</p>
+		</div>
+		<div ng-show="tab === 2" style="display: table; background-color: #CEF6F5; width: 300px; height: 220px; border-radius: 15px;">
+			<div style="display: table-cell; width:250px; vertical-align: middle; text-align: center">
+				<div style="display:inline-block">
+					<%= form_for @order, :html => {:class => "123", :name => "order", :novalidate => ''} do |f| %>
+						<table>
+							<tr>
+								<td colspan="2" style="text-align:center; font-size: 26px;">我要預訂<p></p></td>
+							</tr>
+							<tr>
+								<td class="font-16">訂購人：<p></p></td>
+								<td><%= f.text_field :customer, :class => "form-control", :'ng-model' => 'order.customer' , placeholder: "必填", :required => '' %><p></p></td>
+							</tr>
+							<tr>
+								<td class="font-16">說明：</td>
+								<td><%= f.text_area :description, :class => "form-control", :placeholder => "聯絡方式或其他..." %></td>
+							</tr>
+							<tr>
+								<td colspan="2"><p></p><%= f.submit "送出", :class => "btn btn-primary", :style => "width: 100%", :'ng-disabled' => "order.$invalid" %></td>
+							</tr>
+						</table>
+						<%= f.text_field :product_id, value: @product.id, readonly: true, :style => "display: none" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	<p class="divider-20"></p>
+	<h4><a href="{{p.specific_product.link}}" target="_blank">查看介紹</a></h4>
+	<p>分類：{{p.specific_product.tag}}</p>
 </div>

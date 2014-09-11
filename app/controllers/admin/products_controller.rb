@@ -2,6 +2,7 @@ class Admin::ProductsController < ApplicationController
   before_action :require_login
 
   def index
+    gon.products = Product.all
   end
 
   def new

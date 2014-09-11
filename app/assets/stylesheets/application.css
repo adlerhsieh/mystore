@@ -43,10 +43,25 @@
 	font-size: 18px;
 }
 
+.font-16 {
+	font-size: 16px;
+}
+
 .divider-30 {
 	height: 30px;
 }
 
 .divider-20 {
 	height: 20px;	
+}
+
+.search {
+	font-size: 16px;
+}
+
+input.ng-invalid.ng-dirty {
+     background-color: #F8E0E0;
+}
+input.ng-valid.ng-dirty {
+     background-color: #E0F8F1;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mystore</title>
+  <title>Adler的書櫃和雜貨</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -10,7 +10,7 @@
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="navbar-header">
-		<%= link_to "我的商店", root_url, :class => "navbar-brand" %>
+		<%= link_to "Adler的書櫃和雜貨", root_url, :class => "navbar-brand" %>
 	</div>
 	<div class="navbar-form navbar-right">
 <% if current_user %>
@@ -23,7 +23,7 @@
 <div class="container">
 	<% if flash.any? %>
 		<% flash.each do |key, value| %>
-			<%= value %>
+			<div class="alert alert-success alert-dismissible" role="alert" style="margin-top: 20px;"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button><%= value %></div>
 		<% end %>
 	<% end %>
 	<%= yield%>
