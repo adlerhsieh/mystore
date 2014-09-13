@@ -1,18 +1,13 @@
-<h1 ng-hide="search.length > 0">全部</h1><h1 ng-show="search.length > 0">搜尋：{{search}}</h1>
-<p style="text-align:right;margin-top:-40px">
-<!-- 	<div class="dropdown">
-		<button class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">查看各項分類 <span class="caret"></span></button>
-		<ul class="dropdown-menu" role="menu">
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">第一個類別</a></li>
-		</ul>
-	</div> -->
-	<input class="" style="width:25%; height: 35px;" ng-model="search" placeholder="快速搜尋">
-</p>
-<hr/>
-<p class="divider-30"></p>
 <div ng-controller="listController as productList" >
-	<div class="col-md-2 product-col" ng-repeat="product in productList.list | filter:search">
-		<a href="/products/{{product.id}}"><img class="thumb" src="{{product.default_image}}" /></a>
-		<p class="product-title"><a href="/products/{{product.id}}">{{product.title}}</a></p>
-	</div>
+	<!-- <h1 ng-hide="search.length > 0">{{selection}}</h1><h1 ng-show="search.length > 0">搜尋：{{search}}</h1> -->
+	<p style="margin-top:30px">
+		<!-- <input class="" style="width:25%; height: 35px;" ng-model="search" placeholder="快速搜尋"> -->
+		<select ng-model="selection" ng-options="category for category in productList.c_list" class="btn btn-default dropdown-toggle font-16" style="width:25%; height: 35px;"></select>
+	</p>
+	<hr/>
+	<p class="divider-30"></p>
+		<div class="col-md-2 product-col" ng-repeat="product in productList.list" ng-show="this.selection === product.category || this.selection === '顯示全部'">
+			<a href="/products/{{product.id}}"><img class="thumb" src="{{product.default_image}}" /></a>
+			<p class="product-title"><a href="/products/{{product.id}}">{{product.title}}</a></p>
+		</div>
 </div>

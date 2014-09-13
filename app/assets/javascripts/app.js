@@ -57,6 +57,9 @@ myStore.controller("ordersController", ['$scope', '$http', function($scope, $htt
 myStore.controller("listController", ['$scope', function($scope){
 	this.list = gon.products;
 	this.category = gon.category;
+	this.c_list = gon.category_dropdown;
+	this.show = "全部";
+	$scope.selection = "顯示全部";
 
 	// 填入各項product的category title
 	for (i = 0; i < this.list.length; i++) {		
@@ -66,6 +69,8 @@ myStore.controller("listController", ['$scope', function($scope){
 				};
 			};
 	};
+
+
 }]);
 
 myStore.controller("productController", ['$scope', function($scope){
