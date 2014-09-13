@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
   def show
   	@product = Product.find(params[:id])
   	gon.specific_product = Product.find(params[:id])
+    gon.category = @product.category.title
   	@order = Order.new
   end
 end

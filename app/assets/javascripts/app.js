@@ -51,4 +51,5 @@ myStore.controller("ordersController", ['$scope', '$http', function($scope, $htt
 myStore.controller("listController", ['$scope', function($scope){
 	this.list = gon.products;
 	this.specific_product = gon.specific_product;
+	this.category = gon.category;
 }]);
