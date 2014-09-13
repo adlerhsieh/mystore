@@ -27,12 +27,14 @@ p {
 	max-height: 150px;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 15px;
 	border: 1px solid black;
 }
 
 .show-thumb {
 	max-width: 250px;
 	max-height: 250px;
+	border: 1px solid #D8D8D8;
 }
 
 .margin-top-30 {
@@ -63,6 +65,10 @@ p {
 
 .divider-20 {
 	height: 20px;	
+}
+
+.divider-8 {
+	height: 8px;	
 }
 
 .search {
