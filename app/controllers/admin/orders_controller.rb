@@ -17,9 +17,24 @@ class Admin::OrdersController < ApplicationController
   end
 
   def change_order_status
-    Order.find(params[:id]).update_attributes(:status => params[:statusCode])
-    Product.find(Order.find(params[:id]).product_id).update_attributes(:quantity => 1) if params[:statusCode] == "取消"
-    @respond = {:result => 'success'}
+    will_save = true    
+    target_product = Product.find(Order.find(params[:id]).product_id)
+    current_quantity = target_product[:quantity]
+    target_product.update_attributes(:quantity =>  current_quantity + 1) if params[:statusCode] == "訂單取消"
+    if params[:statusCode] == "恢復下訂"
+      if current_quantity > 0
+        target_product.update_attributes(:quantity =>  current_quantity - 1)
+      else
+        will_save = false 
+      end
+    end
+
+    if will_save == true
+      Order.find(params[:id]).update_attributes(:status => params[:statusCode][-2,2])
+      @respond = {:result => 'success'}
+    else
+      @respond = {:result => 'failed'}
+    end
     render :json => @respond
   end
 
