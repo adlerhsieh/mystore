@@ -3,6 +3,10 @@ class Admin::ProductsController < ApplicationController
 
   def index
     gon.products = Product.all
+    gon.category = []
+    for i in 0..gon.products.length-1
+      gon.category.push([gon.products[i].id,Category.find(gon.products[i].id).title])
+    end
   end
 
   def new

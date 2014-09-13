@@ -25,6 +25,9 @@ p {
 .thumb {
 	max-width: 150px;
 	max-height: 150px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
 }
 
 .show-thumb {
@@ -37,9 +40,12 @@ p {
 }
 
 .product-col {
-
 	height: 250px;
 	text-align: center;
+}
+
+.product-col:hover {
+	background-color: #E6E6E6;
 }
 
 .product-title {
@@ -69,3 +75,24 @@ input.ng-invalid.ng-dirty {
 input.ng-valid.ng-dirty {
      background-color: #E0F8F1;
 }
+
+.align-right {
+	display: block;
+	float: right;
+	margin-top: 8px;
+}
+
+/*解決版面縮小時會有圖片位置偏離的問題*/
+@media all and (max-width: 1200px) {
+	.thumb {
+		margin-left: -12px;
+	}
+}
+
+/*解決Navbar縮小時右上方按鈕的過低問題*/
+@media all and (max-width: 768px) {
+	.align-right {
+		margin-top: -41px;
+	}
+}
+

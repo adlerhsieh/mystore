@@ -12,11 +12,10 @@
 	<div class="navbar-header">
 		<%= link_to "Adler的雜貨", root_url, :class => "navbar-brand" %>
 	</div>
-	<div class="navbar-form navbar-right">
+	<div class="align-right">
 <% if current_user %>
-	<%= current_user.email %>&nbsp;<%= link_to "登出", sign_out_path, :method => :delete, :class => "btn btn-default", :style => "margin-right: 10px;" %>&nbsp;<%= link_to "所有訂單", admin_orders_path, :class => "btn btn-default" %>&nbsp;
+	<%= current_user.email %>&nbsp;<%= link_to "登出", sign_out_path, :method => :delete, :class => "btn btn-default", :style => "margin-right: 10px;" %>&nbsp;<%= link_to "所有訂單", admin_orders_path, :class => "btn btn-default" %>&nbsp;<%= link_to "控制台", admin_products_path, :class => "btn btn-default" %>&nbsp;
 <% end %>
-	<%= link_to "控制台", admin_products_path, :class => "btn btn-default" %>&nbsp;
 		
 	</div>
 </div>

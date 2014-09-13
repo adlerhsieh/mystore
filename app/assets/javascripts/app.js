@@ -56,6 +56,18 @@ myStore.controller("ordersController", ['$scope', '$http', function($scope, $htt
 
 myStore.controller("listController", ['$scope', function($scope){
 	this.list = gon.products;
-	this.specific_product = gon.specific_product;
 	this.category = gon.category;
+
+	// 填入各項product的category title
+	for (i = 0; i < this.list.length; i++) {		
+			for (j = 0; j < this.category.length; j++) {
+				if (this.list[i].id === this.category[j][0]) {
+					this.list[i].category = this.category[j][1];
+				};
+			};
+	};
 }]);
+
+myStore.controller("productController", ['$scope', function($scope){
+	this.specific_product = gon.specific_product;
+}]);	

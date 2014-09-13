@@ -1,6 +1,10 @@
 class ProductsController < ApplicationController
   def index
   	gon.products = Product.where('quantity > ?', 0)
+    gon.category = []
+    for i in 0..gon.products.length-1
+      gon.category.push([gon.products[i].id,Category.find(gon.products[i].id).title])
+    end
   end
 
   def new
@@ -16,4 +20,5 @@ class ProductsController < ApplicationController
     gon.category = @product.category.title
   	@order = Order.new
   end
+
 end
