@@ -105,5 +105,5 @@ myStore.controller("listController", ['$scope', function($scope){
 
 myStore.controller("productController", ['$scope', function($scope){
 	this.specific_product = gon.specific_product;
-	this.specific_product.category = gon.category
+	this.specific_product.category = gon.category;
 }]);	
