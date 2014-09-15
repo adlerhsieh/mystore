@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
     end
 
     gon.specific_product = {}
-    gon.category = {}
     @order = Order.new
   end
 

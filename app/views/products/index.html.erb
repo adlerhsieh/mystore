@@ -7,6 +7,7 @@
 			<div ng-click="p.demonstrate_product(product.id)" class="col-md-2 product-col" ng-repeat="product in p.list" ng-show="this.selection === product.category || this.selection === '顯示全部'">
 				<img class="thumb" src="{{product.default_image}}"/>
 				<p class="product-title">{{product.title}}</p>
+				<p>{{this.category}}</p>
 			</div>
 			<div ng-show="p.show === true" class="box_shadow navbar-fixed-top" ng-click="p.show = false; tab = 1"></div>
 	<div ng-init="tab = 1" ng-show="p.show === true" class="specific_product_box navbar-fixed-top">
