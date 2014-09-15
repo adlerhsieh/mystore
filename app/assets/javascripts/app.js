@@ -70,6 +70,35 @@ myStore.controller("listController", ['$scope', function($scope){
 			};
 	};
 
+	this.specific_product = {
+		"id": 0,
+		"title": "",
+		"link": "",
+		"description": "",
+		"default_image": "",
+		"comments": ""
+	};
+	this.show = false;
+	this.demonstrate_product = function(num) {
+		this.show = true;
+		var the_id = 0;
+		for (i = 0; i < this.list.length; i++) {
+			if (this.list[i].id == num) {
+				this.specific_product = {
+					"id": this.list[i].id,
+					"title": this.list[i].title,
+					"link": this.list[i].link,
+					"description": this.list[i].description,
+					"default_image": this.list[i].default_image,
+					"comments": this.list[i].comments
+				};
+			};
+		$('#specific_product_id').val(this.list[i].id);
+		};	
+
+	};
+
+
 
 }]);
 

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   	@user = User.authenticate(params[:name], params[:password])
   	if @user
   		session[:user_id] = @user.id
-  		redirect_to admin_products_path
+  		redirect_to root_url
       flash[:notice] = "登入成功"
   	else
   		flash[:notice] = "登入資訊錯誤"

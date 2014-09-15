@@ -10,6 +10,10 @@ class ProductsController < ApplicationController
     for i in 0..gon.products.length-1
       gon.category_dropdown.push(Category.find(gon.products[i].category_id).title) if gon.category_dropdown.index(Category.find(gon.products[i].category_id).title) == nil
     end
+
+    gon.specific_product = {}
+    gon.category = {}
+    @order = Order.new
   end
 
   def new

@@ -1,13 +1,57 @@
-<div ng-controller="listController as productList" >
-	<!-- <h1 ng-hide="search.length > 0">{{selection}}</h1><h1 ng-show="search.length > 0">搜尋：{{search}}</h1> -->
-	<p style="margin-top:30px">
-		<!-- <input class="" style="width:25%; height: 35px;" ng-model="search" placeholder="快速搜尋"> -->
-		<select ng-model="selection" ng-options="category for category in productList.c_list" class="btn btn-default dropdown-toggle" style="width:25%; height: 35px;"></select>
-	</p>
-	<hr/>
-	<p class="divider-30"></p>
-		<div class="col-md-2 product-col" ng-repeat="product in productList.list" ng-show="this.selection === product.category || this.selection === '顯示全部'">
-			<a href="/products/{{product.id}}"><img class="thumb" src="{{product.default_image}}" /></a>
-			<p class="product-title"><a href="/products/{{product.id}}">{{product.title}}</a></p>
+<div ng-controller="listController as p">
+		<p style="margin-top:30px">
+			<select ng-model="selection" ng-options="category for category in p.c_list" class="btn btn-default dropdown-bar" style="width:25%; height: 35px;"></select>
+		</p>
+		<hr/>
+		<p class="divider-30"></p>
+			<div ng-click="p.demonstrate_product(product.id)" class="col-md-2 product-col" ng-repeat="product in p.list" ng-show="this.selection === product.category || this.selection === '顯示全部'">
+				<img class="thumb" src="{{product.default_image}}"/>
+				<p class="product-title">{{product.title}}</p>
+			</div>
+			<div ng-show="p.show === true" class="box_shadow navbar-fixed-top" ng-click="p.show = false; tab = 1"></div>
+	<div ng-init="tab = 1" ng-show="p.show === true" class="specific_product_box navbar-fixed-top">
+		<h1 style="text-align:center">{{p.specific_product.title}}</h1>
+		<div class="col-md-6 margin-top-30">
+			<a href="{{p.specific_product.link}}" target="_blank"><img class="show-thumb div-center" src="{{p.specific_product.default_image}}" /></a>
+		</div>	
+		<div class="col-md-6">
+			<div style="height: 80px;">
+				<h3 style="text-align:center">一句話摘要</h3>
+				<p>{{p.specific_product.description}}</p>
+			</div>
+			<div style="height: 130px;">
+				<hr>
+				<h3 style="text-align:center">個人感想</h3>
+				<p>{{p.specific_product.comments}}</p>
+			</div>
 		</div>
+		<div>
+			<a class="btn btn-warning font-16" style="width:120px;" href="{{p.specific_product.link}}" target="_blank">詳細介紹</a>&nbsp;&nbsp;&nbsp;<p class="btn btn-primary font-16" ng-click="tab = 2" style="width: 120px;">我要預訂</p>
+		</div>
+		<div>
+			<p class="divider-20"></p>
+			<div ng-show="tab === 2" style="display: table; background-color: #E6E6E6; width: 300px; height: 190px; border-radius: 15px; margin-left:auto; margin-right:auto">
+				<div style="display: table-cell; width:250px; vertical-align: middle; text-align: center">
+					<div style="display:inline-block">
+						<%= form_for @order, :html => {:class => "123", :name => "order", :novalidate => ''} do |f| %>
+							<table>
+								<tr>
+									<td class="font-16">訂購人：<p></p></td>
+									<td><%= f.text_field :customer, :class => "form-control", :'ng-model' => 'order.customer' , placeholder: "必填", :required => '' %><p></p></td>
+								</tr>
+								<tr>
+									<td class="font-16">說明：</td>
+									<td><%= f.text_area :description, :class => "form-control", :placeholder => "聯絡方式或其他..." %></td>
+								</tr>
+								<tr>
+									<td colspan="2"><p></p><%= f.submit "送出", :class => "btn btn-primary", :style => "width: 100%", :'ng-disabled' => "order.$invalid" %></td>
+								</tr>
+							</table>
+							<%= f.text_field :product_id, readonly: true, :style => "display: none", :id => "specific_product_id"  %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
 </div>
