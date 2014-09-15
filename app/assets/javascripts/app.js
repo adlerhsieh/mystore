@@ -93,8 +93,9 @@ myStore.controller("listController", ['$scope', function($scope){
 					"default_image": this.list[i].default_image,
 					"comments": this.list[i].comments
 				};
+				$('#specific_product_id').val(this.list[i].id);
 			};
-		$('#specific_product_id').val(this.list[i].id);
+		
 		};	
 
 	};
