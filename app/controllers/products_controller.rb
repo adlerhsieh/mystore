@@ -4,11 +4,11 @@ class ProductsController < ApplicationController
     gon.category = []
     gon.category_dropdown = []
     for i in 0..gon.products.length-1
-      gon.category.push([gon.products[i].id,Category.find(gon.products[i].id).title])
+      gon.category.push([gon.products[i].id,Category.find(gon.products[i].category_id).title])
     end
     gon.category_dropdown.push("顯示全部")
     for i in 0..gon.products.length-1
-      gon.category_dropdown.push(Category.find(gon.products[i].id).title)
+      gon.category_dropdown.push(Category.find(gon.products[i].category_id).title) if gon.category_dropdown.index(Category.find(gon.products[i].category_id).title) == nil
     end
   end
 

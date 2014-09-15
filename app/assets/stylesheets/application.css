@@ -44,6 +44,7 @@ p {
 .product-col {
 	height: 250px;
 	text-align: center;
+	margin-top: 20px;
 }
 
 .product-col:hover {
@@ -52,7 +53,7 @@ p {
 
 .product-title {
 	padding-top: 20px;
-	font-size: 18px;
+	font-size: 15px;
 }
 
 .font-16 {
