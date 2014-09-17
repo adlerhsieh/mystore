@@ -130,6 +130,16 @@ input.ng-valid.ng-dirty {
 	display: none;
 }
 
+.order-box {
+	display: table; 
+	background-color: #D8D8D8; 
+	width: 300px; 
+	height: 190px; 
+	border-radius: 15px; 
+	margin-left:auto; 
+	margin-right:auto
+}
+
 @media all and (max-width: 992px) {
 	p {
 		font-size: 14px;
@@ -163,6 +173,11 @@ input.ng-valid.ng-dirty {
 		width: 32%;
 		margin-top: 5px;
 		font-size: 12px;
+	}
+
+	.order-box {
+		margin-top: -40%;
+		z-index: 99999999999;
 	}
 }
 
