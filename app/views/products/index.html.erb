@@ -1,6 +1,6 @@
 <div ng-controller="listController as p">
 		<p style="margin-top:30px">
-			<select ng-model="selection" ng-options="category for category in p.c_list" class="btn btn-default dropdown-bar" style="width:25%; height: 35px;"></select>
+			<select ng-model="selection" ng-options="category for category in p.c_list" class="btn btn-default dropdown-bar"></select>
 		</p>
 		<hr/>
 		<p class="divider-30"></p>
@@ -17,17 +17,17 @@
 		</div>	
 		<div class="col-md-6">
 			<div style="height: 80px;">
-				<h3 style="text-align:center">一句話摘要</h3>
+				<h3 style="text-align:center" class="box-title">一句話摘要</h3>
 				<p>{{p.specific_product.description}}</p>
 			</div>
 			<div style="height: 130px;">
 				<hr>
-				<h3 style="text-align:center">個人感想</h3>
+				<h3 style="text-align:center" class="box-title">個人感想</h3>
 				<p>{{p.specific_product.comments}}</p>
 			</div>
 		</div>
 		<div>
-			<a class="btn btn-warning font-16" style="width:120px;" href="{{p.specific_product.link}}" target="_blank">詳細介紹</a>&nbsp;&nbsp;&nbsp;<p class="btn btn-primary font-16" ng-click="tab = 2" style="width: 120px;">我要預訂</p>
+			<a class="box-btn btn btn-warning font-16" href="{{p.specific_product.link}}" target="_blank">詳細介紹</a>&nbsp;<span class="box-btn btn btn-primary font-16" ng-click="tab = 2">我要預訂</span>&nbsp;<span class="box-btn btn btn-default font-16" ng-click="p.show = false">回主畫面</span>
 		</div>
 		<div>
 			<p class="divider-20"></p>
