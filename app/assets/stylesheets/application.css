@@ -140,6 +140,10 @@ input.ng-valid.ng-dirty {
 	margin-right:auto
 }
 
+.box-divider {
+	height: 100px;
+}
+
 @media all and (max-width: 992px) {
 	p {
 		font-size: 14px;
@@ -178,6 +182,10 @@ input.ng-valid.ng-dirty {
 	.order-box {
 		margin-top: -40%;
 		z-index: 99999999999;
+	}
+
+	.box-divider {
+		height: 30px;
 	}
 }
 

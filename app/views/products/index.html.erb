@@ -16,18 +16,18 @@
 			<a href="{{p.specific_product.link}}" target="_blank"><img class="show-thumb div-center" src="{{p.specific_product.default_image}}" /></a>
 		</div>	
 		<div class="col-md-6">
-			<div style="height: 80px;">
+			<div class="box-divider">
 				<h3 style="text-align:center" class="box-title">一句話摘要</h3>
-				<p>{{p.specific_product.description}}</p>
+				<p style="z-index=5">{{p.specific_product.description}}</p>
 			</div>
-			<div style="height: 130px;">
+			<div class="box-divider">
 				<hr>
 				<h3 style="text-align:center" class="box-title">個人感想</h3>
-				<p>{{p.specific_product.comments}}</p>
+				<p style="z-index=5">{{p.specific_product.comments}}</p>
 			</div>
 		</div>
-		<div>
-			<a class="box-btn btn btn-warning font-16" href="{{p.specific_product.link}}" target="_blank">詳細介紹</a>&nbsp;<span class="box-btn btn btn-primary font-16" ng-click="tab = 2">我要預訂</span>&nbsp;<span class="box-btn btn btn-default font-16 exit" ng-click="p.show = false">回主畫面</span>
+		<div class="box-divider">
+			<a class="box-btn btn btn-warning font-16" href="{{p.specific_product.link}}" target="_blank">詳細介紹</a>&nbsp;<span class="box-btn btn btn-primary font-16" ng-click="tab = 2">我要預訂</span>&nbsp;<span class="box-btn btn btn-default font-16 exit" ng-click="p.show = false; tab = 1">回主畫面</span>
 		</div>
 		<div>
 			<p class="divider-20"></p>
